@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js"
+import User from "./models/user.model.js"
+
 const app = express();
 
 app.use(cors());
@@ -20,9 +22,9 @@ app.get("/", (req, res) => {
 //   res.send("posted")
 // })
 
-// app.get("/users", async(req,res)=>{
-//   const ans = await User.find()
-//   res.json(ans);
-// })
+app.get("/users", async(req,res)=>{
+  const ans = await User.find()
+  res.json(ans);
+})
 
 export default app;
